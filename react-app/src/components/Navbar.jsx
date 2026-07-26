@@ -22,6 +22,12 @@ const Navbar = () => {
       </Link>
       <Link
         style={{ textDecoration: "none", color: "black", fontWeight: "bold" }}
+        to="/FakeStoreProducts"
+      >
+        Fakestore Products
+      </Link>
+      <Link
+        style={{ textDecoration: "none", color: "black", fontWeight: "bold" }}
         to="/products"
       >
         Products

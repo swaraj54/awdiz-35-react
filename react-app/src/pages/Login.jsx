@@ -1,26 +1,40 @@
-import React from "react";
-import { Link, useNavigate } from "react-router";
+import React, { useState } from "react";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  console.log(loginData, "loginData");
 
-  function checkUser() {
-    // alert("Hello");
-    const user = false;
-    if (user) {
-      alert("Login successfull.");
-      navigate("/");
-    } else {
-      alert("Login failed.");
-      navigate("/register");
+  const handleChange = (event) => {
+    // console.log(event.target.value, "value");
+    // console.log(event.target.name, "name");
+    setLoginData({ ...loginData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert("Submitted.");
+    if (loginData.password.length < 8) {
     }
-  }
+  };
 
+  // const data = { email: "abc@gmail.com", password: "pass@123" };
+  // data.email;
+  // data["password"] = "akjb djwsh";
   return (
     <div>
       <h1>Login</h1>
-      <button onClick={checkUser}>Login</button>
-      <Link to="/">Go ot Home page</Link>
+      <form onSubmit={handleSubmit}>
+        <label>Email :</label>
+        <br />
+        <input onChange={handleChange} type="email" name="email" />
+        <br />
+        <label>Password :</label>
+        <br />
+        <input onChange={handleChange} type="password" name="password" />
+        <br />
+        <input type="submit" />
+        <br />
+      </form>
     </div>
   );
 };
