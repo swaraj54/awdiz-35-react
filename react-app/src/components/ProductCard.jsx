@@ -9,6 +9,7 @@ function ProductCard(props) {
 
   return (
     <div
+      key={props.id}
       onClick={handleNavigate}
       style={{
         border: "1px solid black",

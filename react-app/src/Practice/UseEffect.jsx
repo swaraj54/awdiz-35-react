@@ -4,16 +4,24 @@ const UseEffect = () => {
   const [counter, setCounter] = useState(1);
   const [counter2, setCounter2] = useState(1);
 
-  //   initial render and when coutner 2 changes
+  // initial render call  
+
+
+  // when any state changes
   useEffect(() => {
     console.log("use effect");
   });
+
   useEffect(() => {
     console.log("use effect");
   }, []);
+
+  // when counter2 state changes then it'll call functiobn 
   useEffect(() => {
     console.log("use effect");
   }, [counter2]);
+
+  // from passed dependencies if anyone changes then it'll call function
   useEffect(() => {
     console.log("use effect");
   }, [counter2, counter]);

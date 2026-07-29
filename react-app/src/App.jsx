@@ -10,6 +10,7 @@ import SingleProduct from "./pages/SingleProduct";
 import UseState from "./Practice/UseState";
 import UseEffect from "./Practice/UseEffect";
 import FakeStoreProducts from "./Practice/FakeStoreProducts";
+import UseMemo from "./Practice/UseMemo";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/usestate" element={<UseState />} />
         <Route path="/useeffect" element={<UseEffect />} />
         <Route path="/FakeStoreProducts" element={<FakeStoreProducts />} />
+        <Route path="/useMemo" element={<UseMemo />} />
       </Routes>
     </>
   );
@@ -39,7 +41,7 @@ export default App;
 // useNavigate - Completed
 // useParams - Completed
 // useState - Completed
-// useEffect
+// useEffect - Completed
 // useMemo
 // memo()
 // useCallback
