@@ -5,7 +5,7 @@ const UseMemo = () => {
   //   const value = lengthyCalculations(counter1);
 
   const value = useMemo(() => {
-    lengthyCalculations(counter1);
+    return lengthyCalculations(counter1);
   }, [counter1]);
 
   const [counter2, setCounter2] = useState(22);

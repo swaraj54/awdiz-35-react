@@ -10,7 +10,7 @@ const FakeStoreProducts = () => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((jsData) => {
-        // console.log(jsData);
+        console.log(jsData);
         setProducts(jsData);
         setLoading(false);
       });

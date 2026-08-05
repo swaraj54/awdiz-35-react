@@ -11,6 +11,7 @@ import UseState from "./Practice/UseState";
 import UseEffect from "./Practice/UseEffect";
 import FakeStoreProducts from "./Practice/FakeStoreProducts";
 import UseMemo from "./Practice/UseMemo";
+import RevisionUseState from "./Practice/RevisionUseState";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/useeffect" element={<UseEffect />} />
         <Route path="/FakeStoreProducts" element={<FakeStoreProducts />} />
         <Route path="/useMemo" element={<UseMemo />} />
+        <Route path="/revision-usestate" element={<RevisionUseState />} />
       </Routes>
     </>
   );
