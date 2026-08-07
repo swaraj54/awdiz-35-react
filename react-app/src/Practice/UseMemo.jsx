@@ -2,13 +2,14 @@ import React, { useMemo, useState } from "react";
 
 const UseMemo = () => {
   const [counter1, setCounter1] = useState(11);
-  //   const value = lengthyCalculations(counter1);
+  const [counter2, setCounter2] = useState(22);
+
+    // const value = lengthyCalculations(counter1);
 
   const value = useMemo(() => {
     return lengthyCalculations(counter1);
   }, [counter1]);
 
-  const [counter2, setCounter2] = useState(22);
 
   function increment() {
     setCounter1(counter1 + 1);

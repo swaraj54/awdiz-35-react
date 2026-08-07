@@ -12,6 +12,7 @@ import UseEffect from "./Practice/UseEffect";
 import FakeStoreProducts from "./Practice/FakeStoreProducts";
 import UseMemo from "./Practice/UseMemo";
 import RevisionUseState from "./Practice/RevisionUseState";
+import UseCallback from "./Practice/UseCallback";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/FakeStoreProducts" element={<FakeStoreProducts />} />
         <Route path="/useMemo" element={<UseMemo />} />
         <Route path="/revision-usestate" element={<RevisionUseState />} />
+        <Route path="/useCallback" element={<UseCallback />} />
       </Routes>
     </>
   );
@@ -44,9 +46,10 @@ export default App;
 // useParams - Completed
 // useState - Completed
 // useEffect - Completed
-// useMemo
-// memo()
-// useCallback
+// useMemo - Completed
+// memo() - Completed
+// useCallback - Completed
 // useRef
 // useReducer
 // useContext
+// Redux 
