@@ -15,6 +15,7 @@ import RevisionUseState from "./Practice/RevisionUseState";
 import UseCallback from "./Practice/UseCallback";
 import UseRef from "./Practice/UseRef";
 import UseReducer from "./Practice/UseReducer";
+import ContextCounter from "./Practice/ContextCounter";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/useCallback" element={<UseCallback />} />
         <Route path="/useref" element={<UseRef />} />
         <Route path="/usereducer" element={<UseReducer />} />
+        <Route path="/contextCounter" element={<ContextCounter />} />
       </Routes>
     </>
   );
@@ -54,6 +56,8 @@ export default App;
 // memo() - Completed
 // useCallback - Completed
 // useRef - Completed
-// useReducer
-// useContext
-// Redux 
+// useReducer - Completed
+// useContext - Completed
+// Redux
+// const state = useSelector()
+// useDispatch()

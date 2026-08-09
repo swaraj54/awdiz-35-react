@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { CounterContext } from "../contexts/CounterContext";
 
 const Navbar = () => {
+  const { state } = useContext(CounterContext);
   return (
     <div
       style={{
@@ -14,6 +16,7 @@ const Navbar = () => {
         fontSize: "24px",
       }}
     >
+      <p>Counter : {state.counter} </p>
       <Link
         style={{ textDecoration: "none", color: "black", fontWeight: "bold" }}
         to="/"
