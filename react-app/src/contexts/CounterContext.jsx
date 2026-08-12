@@ -11,7 +11,7 @@ function reducer(state, action) {
     case "RESET":
       return { ...state, counter: 111 };
     default:
-      state;
+      return state;
   }
 }
 

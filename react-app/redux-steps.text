@@ -1,0 +1,13 @@
+Step 1 : Install packages, reduxjs toolkit react-redux
+npm install @reduxjs/toolkit react-redux
+
+Step 2 : Create redux folder 
+create slice file
+
+
+step 3 : create store.js file 
+and add slice inside reducere
+
+step 4 : Use provider component in main.jsx and use store 
+
+step 5 : use useselector and usedispatch in any component to access state and update state

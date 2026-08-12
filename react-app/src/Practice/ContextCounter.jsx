@@ -3,6 +3,7 @@ import { CounterContext } from "../contexts/CounterContext";
 
 const ContextCounter = () => {
   const { state, dispatch } = useContext(CounterContext);
+  // const { state : themeSate, dispatch : themeDispatch } = useContext(ThemeContext);
   return (
     <div>
       <h1>Counter from Context : {state.counter}</h1>
