@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import api from "../config/axiosConfig";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -22,8 +26,24 @@ const Register = () => {
     // setUserData()
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    if (userConfirmPassword !== userPassword) {
+      return toast.error("Password and confirm password are not same.");
+    }
+    try {
+      const response = await api.post("/auth/register", {
+        userEmail,
+        userName,
+        userPassword,
+      });
+      if (response.data.success == true) {
+        toast.success("Registeration Successfull.");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error, "error");
+    }
   }
   return (
     <div>
