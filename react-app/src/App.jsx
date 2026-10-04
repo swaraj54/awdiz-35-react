@@ -21,16 +21,23 @@ import ReduxCounter from "./Practice/ReduxCounter";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+
+
+
+
+
+        
+
         <Route path="/products" element={<Products />} />
         <Route
           path="/single-product/:brandName/:productId"
           element={<SingleProduct />}
         />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
 
         <Route path="/usestate" element={<UseState />} />

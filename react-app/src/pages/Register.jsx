@@ -20,6 +20,8 @@ const Register = () => {
   const [userConfirmPassword, setUserConfirmPassword] = useState("");
   console.log(userConfirmPassword, "userConfirmPassword");
 
+  const [userRole, setUserRole] = useState("user");
+  console.log(userRole, "userRole");
   function handleChange(event) {
     console.log(event.target.value, "- user typed value");
     console.log(event.target.name, "- user typed name");
@@ -33,15 +35,17 @@ const Register = () => {
     }
     try {
       const response = await api.post("/auth/register", {
-        userEmail,
-        userName,
-        userPassword,
+        email: userEmail,
+        name: userName,
+        password: userPassword,
+        role: userRole,
       });
       if (response.data.success == true) {
-        toast.success("Registeration Successfull.");
+        toast.success(response.data.message);
         navigate("/login");
       }
     } catch (error) {
+      toast.error(error.response.data.message)
       console.log(error, "error");
     }
   }
@@ -55,6 +59,12 @@ const Register = () => {
           onChange={(event) => setUserName(event.target.value)}
           name="name"
         />
+        <br/>
+        <select onChange={(event)=> setUserRole(event.target.value)}>
+          <option value="user">User</option>
+          <option value="seller">Seller</option>
+          <option value="admin">Admin</option>
+        </select>
         <br />
         <label>Email :</label>
         <br />
