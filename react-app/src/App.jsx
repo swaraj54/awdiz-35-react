@@ -17,15 +17,17 @@ import UseRef from "./Practice/UseRef";
 import UseReducer from "./Practice/UseReducer";
 import ContextCounter from "./Practice/ContextCounter";
 import ReduxCounter from "./Practice/ReduxCounter";
+import ProjectNavbar from "./components/ProjectNavbar";
 
 function App() {
   return (
     <>
       {/* <Navbar /> */}
+      <ProjectNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-
+        <Route path="/login" element={<Login />} />
 
 
 
@@ -37,7 +39,6 @@ function App() {
           path="/single-product/:brandName/:productId"
           element={<SingleProduct />}
         />
-        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFound />} />
 
         <Route path="/usestate" element={<UseState />} />
