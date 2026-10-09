@@ -18,8 +18,29 @@ import UseReducer from "./Practice/UseReducer";
 import ContextCounter from "./Practice/ContextCounter";
 import ReduxCounter from "./Practice/ReduxCounter";
 import ProjectNavbar from "./components/ProjectNavbar";
+import { useEffect } from "react";
+import api from "./config/axiosConfig";
+import { login } from "./redux/authSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const getCurrentUser = async () => {
+    try {
+      const response = await api.get("/auth/get-current-user");
+      if (response.data.success) {
+        dispatch(login(response.data.user));
+      }
+    } catch (error) {
+      console.log(error, "error");
+    }
+  };
+
+  useEffect(() => {
+    getCurrentUser()
+  }, []);
+
   return (
     <>
       {/* <Navbar /> */}
@@ -28,11 +49,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-
-
-
-
-        
 
         <Route path="/products" element={<Products />} />
         <Route
