@@ -21,9 +21,14 @@ import ProjectNavbar from "./components/ProjectNavbar";
 import { useEffect } from "react";
 import api from "./config/axiosConfig";
 import { login } from "./redux/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import ProjectNavbarAdmin from "./components/ProjectNavbarAdmin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ViewSellers from "./pages/admin/ViewSellers";
+import ViewUsers from "./pages/admin/ViewUsers";
 
 function App() {
+  const userData = useSelector((data) => data.auth.user);
   const dispatch = useDispatch();
 
   const getCurrentUser = async () => {
@@ -38,17 +43,24 @@ function App() {
   };
 
   useEffect(() => {
-    getCurrentUser()
+    getCurrentUser();
   }, []);
-
+  console.log(!userData?.role, "checkl");
   return (
     <>
       {/* <Navbar /> */}
-      <ProjectNavbar />
+      {userData?.role === "admin" && <ProjectNavbarAdmin />}
+      {(!userData?.role || userData?.role === "user") && <ProjectNavbar />}
+      {userData?.role === "seller" && <ProjectNavbarAdmin />}
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/sellers" element={<ViewSellers />} />
+        <Route path="/admin/users" element={<ViewUsers />} />
 
         <Route path="/products" element={<Products />} />
         <Route

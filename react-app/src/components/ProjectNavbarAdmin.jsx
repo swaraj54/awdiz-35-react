@@ -4,7 +4,7 @@ import api from "../config/axiosConfig";
 import { logout } from "../redux/authSlice";
 import toast from "react-hot-toast";
 
-const ProjectNavbar = () => {
+const ProjectNavbarAdmin = () => {
   const userData = useSelector((data) => data.auth.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,16 +33,22 @@ const ProjectNavbar = () => {
         alignItems: "center",
       }}
     >
-      <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+      <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/admin/dashboard")}>
         Home
       </h2>
       {userData?.name ? (
         <>
           <h2
             style={{ cursor: "pointer" }}
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/admin/sellers")}
           >
-            Profile
+            View Sellers
+          </h2>
+          <h2
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/admin/users")}
+          >
+            View Users
           </h2>
           <h2 style={{ cursor: "pointer" }} onClick={logoutHandler}>
             Logout
@@ -65,4 +71,4 @@ const ProjectNavbar = () => {
   );
 };
 
-export default ProjectNavbar;
+export default ProjectNavbarAdmin;
