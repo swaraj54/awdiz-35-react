@@ -27,7 +27,13 @@ const Login = () => {
       if (response.data.success) {
         dispatch(login(response.data.user));
         toast.success(response.data.message);
-        navigate("/");
+        if (response.data.user.role === "admin") {
+          navigate("/admin/dashboard");
+        } else if (response.data.user.role === "seller") {
+          navigate("/seller/dashboard");
+        } else {
+          navigate("/");
+        }
       }
     } catch (error) {
       toast.error(error.response.data.message);

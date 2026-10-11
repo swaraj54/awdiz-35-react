@@ -26,6 +26,11 @@ import ProjectNavbarAdmin from "./components/ProjectNavbarAdmin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ViewSellers from "./pages/admin/ViewSellers";
 import ViewUsers from "./pages/admin/ViewUsers";
+import SellerDashboard from "./pages/seller/SellerDashboard";
+import ProjectNavbarSeller from "./components/ProjectNavbarSeller";
+import CreateProduct from "./pages/seller/CreateProduct";
+import ViewProducts from "./pages/seller/ViewProducts";
+import ViewProductsForAdmin from "./pages/admin/ViewProductsForAdmin";
 
 function App() {
   const userData = useSelector((data) => data.auth.user);
@@ -51,16 +56,24 @@ function App() {
       {/* <Navbar /> */}
       {userData?.role === "admin" && <ProjectNavbarAdmin />}
       {(!userData?.role || userData?.role === "user") && <ProjectNavbar />}
-      {userData?.role === "seller" && <ProjectNavbarAdmin />}
+      {userData?.role === "seller" && <ProjectNavbarSeller />}
 
       <Routes>
+        {/* USER ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
+        {/* ADMIN ROUTES */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/sellers" element={<ViewSellers />} />
         <Route path="/admin/users" element={<ViewUsers />} />
+        <Route path="/admin/products" element={<ViewProductsForAdmin />} />
+
+        {/* SELLER ROUTES */}
+        <Route path="/seller/dashboard" element={<SellerDashboard />} />
+        <Route path="/seller/create-product" element={<CreateProduct />} />
+        <Route path="/seller/view-products" element={<ViewProducts />} />
 
         <Route path="/products" element={<Products />} />
         <Route
