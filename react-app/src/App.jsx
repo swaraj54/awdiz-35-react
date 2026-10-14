@@ -31,6 +31,8 @@ import ProjectNavbarSeller from "./components/ProjectNavbarSeller";
 import CreateProduct from "./pages/seller/CreateProduct";
 import ViewProducts from "./pages/seller/ViewProducts";
 import ViewProductsForAdmin from "./pages/admin/ViewProductsForAdmin";
+import Profile from "./pages/user/Profile";
+import AllProducts from "./pages/user/AllProducts";
 
 function App() {
   const userData = useSelector((data) => data.auth.user);
@@ -59,10 +61,15 @@ function App() {
       {userData?.role === "seller" && <ProjectNavbarSeller />}
 
       <Routes>
-        {/* USER ROUTES */}
-        <Route path="/" element={<Home />} />
+
+        {/* AUTH ROUTES */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        {/* USER ROUTES */}
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/products" element={<AllProducts />} />
 
         {/* ADMIN ROUTES */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -75,7 +82,10 @@ function App() {
         <Route path="/seller/create-product" element={<CreateProduct />} />
         <Route path="/seller/view-products" element={<ViewProducts />} />
 
-        <Route path="/products" element={<Products />} />
+
+
+
+        {/* <Route path="/products" element={<Products />} /> */}
         <Route
           path="/single-product/:brandName/:productId"
           element={<SingleProduct />}

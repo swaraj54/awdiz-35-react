@@ -36,6 +36,10 @@ const ProjectNavbar = () => {
       <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
         Home
       </h2>
+
+      <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/products")}>
+        Products
+      </h2>
       {userData?.name ? (
         <>
           <h2
