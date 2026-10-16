@@ -35,16 +35,15 @@ const AllProducts = () => {
   };
 
   const filterProductWithCategory = (category) => {
-    if(category === "all"){
+    if (category === "all") {
       setFilteredProducts(products);
     } else {
-      const filtered = products.filter((product) => 
-        convertToCapitalize(product.category) === category
+      const filtered = products.filter(
+        (product) => convertToCapitalize(product.category) === category,
       );
       setFilteredProducts(filtered);
     }
-    
-  }
+  };
 
   useEffect(() => {
     getAllProducts();

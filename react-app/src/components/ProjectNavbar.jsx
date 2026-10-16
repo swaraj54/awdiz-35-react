@@ -48,6 +48,12 @@ const ProjectNavbar = () => {
           >
             Profile
           </h2>
+          <h2
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/cart")}
+          >
+            Cart
+          </h2>
           <h2 style={{ cursor: "pointer" }} onClick={logoutHandler}>
             Logout
           </h2>{" "}

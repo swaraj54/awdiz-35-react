@@ -4,7 +4,7 @@ function ProductCard(props) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/single-product/${props.category}/${props.id}`);
+    navigate(`/product-details/${props.category}/${props.id}`);
   };
 
   return (
