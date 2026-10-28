@@ -50,6 +50,12 @@ const ProjectNavbar = () => {
           </h2>
           <h2
             style={{ cursor: "pointer" }}
+            onClick={() => navigate("/orders")}
+          >
+            Orders
+          </h2>
+          <h2
+            style={{ cursor: "pointer" }}
             onClick={() => navigate("/cart")}
           >
             Cart

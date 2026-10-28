@@ -35,6 +35,7 @@ import Profile from "./pages/user/Profile";
 import AllProducts from "./pages/user/AllProducts";
 import ProductDetails from "./pages/user/ProductDetails";
 import Cart from "./pages/user/Cart";
+import Orders from "./pages/user/Orders";
 
 function App() {
   const userData = useSelector((data) => data.auth.user);
@@ -74,6 +75,7 @@ function App() {
         <Route path="/products" element={<AllProducts />} />
         <Route path="/product-details/:category/:productId" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/orders" element={<Orders />} />
 
         {/* ADMIN ROUTES */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />

@@ -8,6 +8,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const [productData, setProductData] = useState([]);
   const [addresses, setAddresses] = useState([]);
+  console.log(addresses, "addresses");
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [addressData, setAddressData] = useState({
     street: "",
@@ -29,6 +30,7 @@ const Cart = () => {
 
   const placeOrder = async () => {
     try {
+      if (!selectedAddress) return toast.error("Address is required.");
       const response = await api.post("/user/place-order", selectedAddress);
       if (response.data.success) {
         toast.success(response.data.message);
