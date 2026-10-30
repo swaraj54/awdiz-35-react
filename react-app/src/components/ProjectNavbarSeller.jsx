@@ -52,7 +52,7 @@ const ProjectNavbarSeller = () => {
           </h2>
           <h2
             style={{ cursor: "pointer" }}
-            onClick={() => navigate("/seller/view-products")}
+            onClick={() => navigate("/seller/view-orders")}
           >
             View Orders
           </h2>
