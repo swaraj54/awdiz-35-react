@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../config/axiosConfig";
+import { toast } from "react-hot-toast";
 
 const ViewOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -9,6 +10,28 @@ const ViewOrders = () => {
             const response = await api.get(`/seller/get-orders`);
             if (response.data.success) {
                 setOrders(response.data.orders);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const handlePaymentStatusChange = async (orderId, newStatus) => {
+        try {
+            const response = await api.put(`/seller/change-payment-status`, { orderId, newStatus });
+            if (response.data.success) {
+                setOrders(response.data.orders);
+                toast.success("Payment status updated successfully");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const handleDeliveryStatusChange = async (orderId, newStatus) => {
+        try {
+            const response = await api.put(`/seller/change-delivery-status`, { orderId, newStatus });
+            if (response.data.success) {
+                setOrders(response.data.orders);
+                toast.success("Delivery status updated successfully");
             }
         } catch (error) {
             console.log(error);
@@ -37,18 +60,25 @@ const ViewOrders = () => {
                                 <p>{order.user.name}</p>
                             </div>
                             <div style={{ padding: "10px", borderRadius: "5px", display: "flex", flexDirection: "row", gap: "10px" }}>
-                                <h3>Payment Status: {order.payment_status}</h3>
-                                <select>
-                                    <option>Paid</option>
-                                    <option>Unpaid</option>
+                                <h3> Current Payment Status: {order.payment_status}</h3><br />
+                            </div>
+                            <div style={{ padding: "10px", borderRadius: "5px", display: "flex", flexDirection: "row", gap: "10px" }}>
+                                <label>Change Payment Status:   </label><br />
+                                <select value={order.payment_status} onChange={(e) => handlePaymentStatusChange(order._id, e.target.value)}>
+                                    <option value="paid">Paid</option>
+                                    <option value="unpaid">Unpaid</option>
                                 </select>
                             </div>
                             <div style={{ padding: "10px", borderRadius: "5px", display: "flex", flexDirection: "row", gap: "10px" }}>
                                 <h3>Delivery Status: {order.delivery_status}</h3>
-                                <select>
-                                    <option>Dispatched</option>
-                                    <option>Delivered</option>
-                                    <option>Booked</option>
+
+                            </div>
+                            <div style={{ padding: "10px", borderRadius: "5px", display: "flex", flexDirection: "row", gap: "10px" }}>
+                                <label>Change Delivery Status:   </label><br />
+                                <select value={order.delivery_status} onChange={(e) => handleDeliveryStatusChange(order._id, e.target.value)}>
+                                    <option value="dispatched">Dispatched</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="booked">Booked</option>
                                 </select>
                             </div>
                         </div>
