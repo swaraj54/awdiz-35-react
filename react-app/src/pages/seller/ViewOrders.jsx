@@ -48,9 +48,14 @@ const ViewOrders = () => {
                     {orders.map((order, i) => (
                         <div style={{ width: "30%", display: "flex", flexDirection: "column", gap: "10px", border: "2px solid black", padding: "10px", borderRadius: "5px" }} key={order._id}>
                             <div style={{ padding: "10px", borderRadius: "5px", display: "flex", flexDirection: "row", gap: "10px" }}>
-                                <h3>Price : {order.price}</h3>
-                                <h3>Address Details : {order.address.street}, {order.address.city}, {order.address.pincode} {order.address.zip}</h3>
+                                <h3>Selling Price : {order.price}/-</h3>
                             </div>
+                            <h3>Manufacturing Cost : {order.mfgCost}/-</h3>
+                            <br /><h3>Final Cost : {order.finalCost}/-</h3>
+                            <br /><h3>Profite : {order.profit}/-</h3>
+                            <br /><h3>Service Cost : {order.serviceCost}/-</h3>
+                            <br /><h3>Delivery Cost : {order.deliveryCost}/-</h3>
+                            <h3>Address Details : {order.address.street}, {order.address.city}, {order.address.pincode} {order.address.zip}</h3>
                             <div style={{ padding: "10px", borderRadius: "5px", display: "flex", flexDirection: "row", gap: "10px" }}>
                                 <h3>Product:</h3>
                                 <p>{order.product.name}</p>
