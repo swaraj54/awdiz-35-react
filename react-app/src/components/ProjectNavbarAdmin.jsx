@@ -56,6 +56,12 @@ const ProjectNavbarAdmin = () => {
           >
             View Products
           </h2>
+          <h2
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/admin/orders-profit")}
+          >
+            View Orders & Profit
+          </h2>
           <h2 style={{ cursor: "pointer" }} onClick={logoutHandler}>
             Logout
           </h2>{" "}

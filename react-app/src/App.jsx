@@ -37,6 +37,7 @@ import ProductDetails from "./pages/user/ProductDetails";
 import Cart from "./pages/user/Cart";
 import Orders from "./pages/user/Orders";
 import ViewOrders from "./pages/seller/ViewOrders";
+import ViewOrdersAndProfit from "./pages/admin/ViewOrdersAndProfit";
 
 function App() {
   const userData = useSelector((data) => data.auth.user);
@@ -83,6 +84,7 @@ function App() {
         <Route path="/admin/sellers" element={<ViewSellers />} />
         <Route path="/admin/users" element={<ViewUsers />} />
         <Route path="/admin/products" element={<ViewProductsForAdmin />} />
+        <Route path="/admin/orders-profit" element={<ViewOrdersAndProfit />} />
 
         {/* SELLER ROUTES */}
         <Route path="/seller/dashboard" element={<SellerDashboard />} />
