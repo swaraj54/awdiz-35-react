@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import api from "../../config/axiosConfig";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
+import { useNavigate } from "react-router";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [profileData, setProfileData] = useState(null);
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
@@ -42,6 +47,20 @@ const Profile = () => {
       console.log(error, "error");
     }
   }
+
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await api.delete("/auth/delete-account");
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setProfileData(null);
+        dispatch(logout());
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error, "error");
+    }
+  }
   const handleChange = (e) => {
     setPasswordData({
       ...passwordData,
@@ -62,6 +81,8 @@ const Profile = () => {
           <p>Phone: {profileData.phone}</p>
         </div>
       )}
+      <h1>Delete Account</h1>
+      <button onClick={handleDeleteAccount}>Delete Account</button>
       <h1>Change Password</h1>
       <form onSubmit={handleSubmit}>
         <label>Current Password</label><br />
